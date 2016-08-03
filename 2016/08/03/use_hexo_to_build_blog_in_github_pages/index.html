@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo github," />
 
 
 
@@ -84,16 +84,13 @@
 
 
 
-<meta name="description" content="Only one, Only you.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="page上.md">
+<meta property="og:title" content="使用hexo搭建博客并部署到github">
 <meta property="og:url" content="http://yoursite.com/2016/08/03/use_hexo_to_build_blog_in_github_pages/index.html">
 <meta property="og:site_name" content="零骑士的城堡">
-<meta property="og:description" content="Only one, Only you.">
-<meta property="og:updated_time" content="2016-08-03T14:03:02.555Z">
+<meta property="og:updated_time" content="2016-08-03T14:08:28.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="page上.md">
-<meta name="twitter:description" content="Only one, Only you.">
+<meta name="twitter:title" content="使用hexo搭建博客并部署到github">
 
 
 
@@ -111,7 +108,7 @@
   };
 </script>
 
-  <title> page上.md | 零骑士的城堡 </title>
+  <title> 使用hexo搭建博客并部署到github | 零骑士的城堡 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +268,7 @@
             
             
               
-                page上.md
+                使用hexo搭建博客并部署到github
               
             
           </h1>
@@ -305,7 +302,7 @@
 
           
           
-             <span id="/2016/08/03/use_hexo_to_build_blog_in_github_pages/" class="leancloud_visitors" data-flag-title="page上.md">
+             <span id="/2016/08/03/use_hexo_to_build_blog_in_github_pages/" class="leancloud_visitors" data-flag-title="使用hexo搭建博客并部署到github">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -327,7 +324,30 @@
       
 
       
-        
+        <h2 id="什么是hexo"><a href="#什么是hexo" class="headerlink" title="什么是hexo"></a>什么是hexo</h2><blockquote>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<h2 id="如何安装hexo"><a href="#如何安装hexo" class="headerlink" title="如何安装hexo"></a>如何安装hexo</h2><ol>
+<li>安装Node.js</li>
+<li>安装Git</li>
+<li><code>$  npm install -g hexo-cli</code></li>
+</ol>
+<h2 id="初次搭建博客"><a href="#初次搭建博客" class="headerlink" title="初次搭建博客"></a>初次搭建博客</h2><ol>
+<li>在合适的目录下创建博客<br><code>$ hexo init &lt;folder&gt;</code><br><code>$ npm install</code></li>
+</ol>
+<h2 id="安装自己喜欢的主题"><a href="#安装自己喜欢的主题" class="headerlink" title="安装自己喜欢的主题"></a>安装自己喜欢的主题</h2><p>推荐一个主题NexT，安装方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd your-hexo-site </div><div class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p>启用主题： 修改根目录的_config.yml中 <code>theme: next</code></p>
+<h2 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h2><ol>
+<li>博客的相关配置在根目录的_config.yml中</li>
+<li>主题的配置在themes/next/_config.yml中</li>
+<li>详细配置，<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">看这里</a></li>
+</ol>
+<h2 id="保存配置"><a href="#保存配置" class="headerlink" title="保存配置"></a>保存配置</h2><p>只需要保存source目录，及根目录的_config.yml和主题目录下的_config.yml，<br>在更换电脑时只要覆盖对应的文件即可；<br>当然也可以直接将所有的文件一起打包保存。</p>
+<h3 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h3><ol>
+<li>如果出现hexo d时，出现<code>ERROR Deployer not found: git</code>错误，请安装<code>npm install hexo-deployer-git --save</code></li>
+<li>_config.yml的deploy配置：type必须是git， resposity必须是<code>https://开头</code>， type/repo/branch都必须是前面两个空格，冒号后一个空格</li>
+</ol>
+
       
     </div>
 
@@ -345,6 +365,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo-github/" rel="tag">#hexo github</a>
+          
+        </div>
       
 
       
@@ -384,7 +410,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/08/03/use_hexo_to_build_blog_in_github_pages/"
-           data-title="page上.md" data-url="http://yoursite.com/2016/08/03/use_hexo_to_build_blog_in_github_pages/">
+           data-title="使用hexo搭建博客并部署到github" data-url="http://yoursite.com/2016/08/03/use_hexo_to_build_blog_in_github_pages/">
       </div>
     
   </div>
@@ -446,7 +472,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -475,7 +501,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是hexo"><span class="nav-number">1.</span> <span class="nav-text">什么是hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何安装hexo"><span class="nav-number">2.</span> <span class="nav-text">如何安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初次搭建博客"><span class="nav-number">3.</span> <span class="nav-text">初次搭建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装自己喜欢的主题"><span class="nav-number">4.</span> <span class="nav-text">安装自己喜欢的主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改配置"><span class="nav-number">5.</span> <span class="nav-text">更改配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存配置"><span class="nav-number">6.</span> <span class="nav-text">保存配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一些坑"><span class="nav-number">6.1.</span> <span class="nav-text">一些坑</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
