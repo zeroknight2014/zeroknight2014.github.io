@@ -88,7 +88,7 @@
 <meta property="og:title" content="maven学习总结">
 <meta property="og:url" content="http://yoursite.com/2016/10/10/maven_learn/index.html">
 <meta property="og:site_name" content="零骑士的城堡">
-<meta property="og:updated_time" content="2016-10-12T13:40:34.046Z">
+<meta property="og:updated_time" content="2016-10-13T03:31:34.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven学习总结">
 
@@ -353,10 +353,7 @@
 <ul>
 <li>groupId：团体，公司，小组，组织，项目，或者其它团体。团体标识的约定是，它以创建这个项目的组织名称的逆向域名(reverse domain name)开头。</li>
 <li>artifactId：在 groupId 下的表示一个单独项目的唯一标识符。</li>
-<li><ul>
 <li>version：项目版本号。</li>
-</ul>
-</li>
 <li>packaging：项目的类型，默认是 jar ，描述了项目打包后的输出。类型为 jar 的项目产生一个JAR文件，类型为 war 的项目产生一个web应用。</li>
 </ul>
 <h3 id="pom-xml简介"><a href="#pom-xml简介" class="headerlink" title="pom.xml简介"></a>pom.xml简介</h3><p>上述命令执行后会生成一个目录hello，并在hello目录下有一个pom.xml，具体内容如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.test.hellomaven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -367,10 +364,105 @@
 <p>pre-clean，clean，post-clean三个阶段</p>
 </blockquote>
 </li>
-<li><p>默认生命周期 (default)<br>| 名称                      | 描述                                       |<br>| ———————– | —————————————- |<br>| validate                | 验证项目是否正确，以及所有为了完整构建必要的信息是否可用             |<br>| generate-sources        | 生成所有需要包含在编译过程中的源代码                       |<br>| process-sources         | 处理源代码，比如过滤一些值                            |<br>| generate-resources      | 生成所有需要包含在打包过程中的资源文件                      |<br>| process-resources       | 复制并处理资源文件至目标目录，准备打包                      |<br>| compile                 | 编译项目的源代码                                 |<br>| process-classes         | 后处理编译生成的文件，例如对Java类进行字节码增强               |<br>| generate-test-sources   | 生成所有包含在测试编译过程中的测试源码                      |<br>| process-test-sources    | 处理测试源码，比如过滤一些值                           |<br>| generate-test-resources | 生成测试需要的资源文件                              |<br>| process-test-resources  | 复制并处理测试资源文件至测试目标目录                       |<br>| test-compile            | 编译测试源码至测试目标目录                            |<br>| test                    | 使用合适的单元测试框架运行测试。这些测试应该不需要代码被打包或发布        |<br>| prepare-package         | 在真正的打包之前，执行一些准备打包必要的操作。这通常会产生一个包的展开的处理过的版本 |<br>| package                 | 将编译好的代码打包成可分发的格式，如JAR，WAR，或者EAR          |<br>| pre-integration-test    | 执行一些在集成测试运行之前需要的动作。如建立集成测试需要的环境          |<br>| integration-test        | 如果有必要的话，处理包并发布至集成测试可以运行的环境               |<br>| post-integration-test   | 执行一些在集成测试运行之后需要的动作。如清理集成测试环境。            |<br>| verify                  | 执行所有检查，验证包是有效的，符合质量规范                    |<br>| install                 | 安装包至本地仓库，以备本地的其它项目作为依赖使用                 |<br>| deploy                  | 复制最终的包至远程仓库，共享给其它开发人员和项目（通常和一次正式的发布相关）   |</p>
+<li><p>默认生命周期 (default)</p>
 </li>
-<li><p>站点生命周期 (site)</p>
-<blockquote>
+</ol>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>validate</td>
+<td>验证项目是否正确，以及所有为了完整构建必要的信息是否可用</td>
+</tr>
+<tr>
+<td>generate-sources</td>
+<td>生成所有需要包含在编译过程中的源代码</td>
+</tr>
+<tr>
+<td>process-sources</td>
+<td>处理源代码，比如过滤一些值</td>
+</tr>
+<tr>
+<td>generate-resources</td>
+<td>生成所有需要包含在打包过程中的资源文件</td>
+</tr>
+<tr>
+<td>process-resources</td>
+<td>复制并处理资源文件至目标目录，准备打包</td>
+</tr>
+<tr>
+<td>compile</td>
+<td>编译项目的源代码</td>
+</tr>
+<tr>
+<td>process-classes</td>
+<td>后处理编译生成的文件，例如对Java类进行字节码增强</td>
+</tr>
+<tr>
+<td>generate-test-sources</td>
+<td>生成所有包含在测试编译过程中的测试源码</td>
+</tr>
+<tr>
+<td>process-test-sources</td>
+<td>处理测试源码，比如过滤一些值</td>
+</tr>
+<tr>
+<td>generate-test-resources</td>
+<td>生成测试需要的资源文件</td>
+</tr>
+<tr>
+<td>process-test-resources</td>
+<td>复制并处理测试资源文件至测试目标目录</td>
+</tr>
+<tr>
+<td>test-compile</td>
+<td>编译测试源码至测试目标目录</td>
+</tr>
+<tr>
+<td>test</td>
+<td>使用合适的单元测试框架运行测试。这些测试应该不需要代码被打包或发布</td>
+</tr>
+<tr>
+<td>prepare-package</td>
+<td>在真正的打包之前，执行一些准备打包必要的操作。这通常会产生一个包的展开的处理过的版本</td>
+</tr>
+<tr>
+<td>package</td>
+<td>将编译好的代码打包成可分发的格式，如JAR，WAR，或者EAR</td>
+</tr>
+<tr>
+<td>pre-integration-test</td>
+<td>执行一些在集成测试运行之前需要的动作。如建立集成测试需要的环境</td>
+</tr>
+<tr>
+<td>integration-test</td>
+<td>如果有必要的话，处理包并发布至集成测试可以运行的环境</td>
+</tr>
+<tr>
+<td>post-integration-test</td>
+<td>执行一些在集成测试运行之后需要的动作。如清理集成测试环境。</td>
+</tr>
+<tr>
+<td>verify</td>
+<td>执行所有检查，验证包是有效的，符合质量规范</td>
+</tr>
+<tr>
+<td>install</td>
+<td>安装包至本地仓库，以备本地的其它项目作为依赖使用</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>复制最终的包至远程仓库，共享给其它开发人员和项目（通常和一次正式的发布相关）</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>站点生命周期 (site)<blockquote>
 <p>pre-site<br>site<br>post-site<br>site-deploy</p>
 </blockquote>
 </li>
@@ -457,6 +549,26 @@
 </li>
 </ol>
 <p>例2，在Profile中定义<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></div><div class="line">	...</div><div class="line">	<span class="tag">&lt;<span class="name">profiles</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">profile</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">id</span>&gt;</span>some-profile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">arbitrary.property</span>&gt;</span>This is some text<span class="tag">&lt;/<span class="name">arbitrary.property</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></div><div class="line">	...</div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="settings-xml配置详解"><a href="#settings-xml配置详解" class="headerlink" title="settings.xml配置详解"></a>settings.xml配置详解</h2><h3 id="顶层元素"><a href="#顶层元素" class="headerlink" title="顶层元素"></a>顶层元素</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>~/workspace/.m2/repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">interactiveMode</span>&gt;</span>true<span class="tag">&lt;/<span class="name">interactiveMode</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">usePluginRegistry</span>&gt;</span>false<span class="tag">&lt;/<span class="name">usePluginRegistry</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">offline</span>&gt;</span>false<span class="tag">&lt;/<span class="name">offline</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pluginGroups</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">pluginGroup</span>&gt;</span>org.codehaus.mojo<span class="tag">&lt;/<span class="name">pluginGroup</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pluginGroups</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>localRepository：该值表示构建系统本地仓库的路径。<br>interactiveMode：如果Maven需要和用户交互以获得输入，则设置成 true ，反之则应为 false 。默认为 true 。<br>usePluginRegistry：如果需要让Maven使用本地文件workspace/.m2/plugin-registry.xml 来管理插件版本，则设为 true 。默认为 false 。<br>offline：如果构建系统需要在离线模式下运行，则为 true ，默认为 false 。<br>pluginGroups：该元素包含一个 pluginGroup 元素列表，每个子元素包含了一个 groupId 。</p>
+<h3 id="服务器（Servers）"><a href="#服务器（Servers）" class="headerlink" title="服务器（Servers）"></a>服务器（Servers）</h3><p>POM中的 distributionManagement 元素定义了部署的仓库。然而，一些设置如安全证书不应该和 pom.xml 一起分发。这种类型的信息应该存在于构建服务器上的 settings.xml 文件中。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">server</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>server001<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>my_login<span class="tag">&lt;/<span class="name">username</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>my_password<span class="tag">&lt;/<span class="name">password</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">privateKey</span>&gt;</span>$&#123;usr.home&#125;/.ssh/id_dsa<span class="tag">&lt;/<span class="name">privateKey</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">passphrase</span>&gt;</span>some_passphrase<span class="tag">&lt;/<span class="name">passphrase</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filePermissions</span>&gt;</span>664<span class="tag">&lt;/<span class="name">filePermissions</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">directoryPermissions</span>&gt;</span>775<span class="tag">&lt;/<span class="name">directoryPermissions</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">configuration</span>&gt;</span><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">server</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>id：这是server的 id<br>username, password：这对元素表示服务器认证所需要的登录名和密码。<br>privateKey, passphrase：和前两个元素类似，这一对元素指定了一个私钥的路径（默认是 ~/.ssh/id_dsa ）以及如果需要的话，一个密语。<br>filePermissions, directoryPermissions：如果在部署的时候会创建一个仓库文件或者目录，这时候就可以使用权限（permission）。这两个元素合法的值是一个三位数字，其对应了*nix文件系统的权限，如664，或者775。</p>
+</blockquote>
+<h3 id="镜像（Mirrors）"><a href="#镜像（Mirrors）" class="headerlink" title="镜像（Mirrors）"></a>镜像（Mirrors）</h3><p>settings.xml中的Mirror配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>planetmirror.com<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>PlanetMirror Australia<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://downloads.planetmirror.com/pub/maven2<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>id, name：该镜像的唯一定义符。id用来区分不同的mirror元素。<br>url：该镜像的URL。构建系统会优先考虑使用该URL，而非使用默认的服务器URL。<br>mirrorOf：被镜像的服务器的id。例如，如果我们要设置了一个Maven中央仓库（<a href="http://repo1.maven.org/maven2）的镜像，就需要将该元素设置成central。这必须和中央仓库的id" target="_blank" rel="external">http://repo1.maven.org/maven2）的镜像，就需要将该元素设置成central。这必须和中央仓库的id</a> central完全一致。</p>
+</blockquote>
+<h3 id="代理（Proxies）"><a href="#代理（Proxies）" class="headerlink" title="代理（Proxies）"></a>代理（Proxies）</h3><p>settings.xml中的代理配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">proxies</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">proxy</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>myproxy<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">active</span>&gt;</span>true<span class="tag">&lt;/<span class="name">active</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">protocol</span>&gt;</span>http<span class="tag">&lt;/<span class="name">protocol</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">host</span>&gt;</span>proxy.somewhere.com<span class="tag">&lt;/<span class="name">host</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">port</span>&gt;</span>8080<span class="tag">&lt;/<span class="name">port</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>proxyuser<span class="tag">&lt;/<span class="name">username</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>somepassword<span class="tag">&lt;/<span class="name">password</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">nonProxyHosts</span>&gt;</span>*.google.com|ibiblio.org<span class="tag">&lt;/<span class="name">nonProxyHosts</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">proxy</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">proxies</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>id：该代理的唯一定义符，用来区分不同的proxy元素。<br>active：true 则激活代理。当我们声明了一组代理，而某个时候只需要激活一个代理的时<br>候，该元素就可以派上用处。<br>protocol, host, port：该代理的 protocol://host:port ，（协议://主机名:端口），分隔成离散的元素以方便配置。<br>username, password：这一对元素表示代理服务器认证的登录名和密码。<br>nonProxyHosts：这里定义一个不该被代理的主机名列表。该列表的分隔符由代理服务器指定；上述的例子中使用了竖线分隔符，使用逗号分隔也很常见。</p>
+</blockquote>
+<h3 id="仓库（Repositories）"><a href="#仓库（Repositories）" class="headerlink" title="仓库（Repositories）"></a>仓库（Repositories）</h3><p>settings.xml中的仓库配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;profiles&gt;</div><div class="line">  &lt;profile&gt;</div><div class="line">  ...</div><div class="line">  &lt;repositories&gt;</div><div class="line">    &lt;repository&gt;</div><div class="line">    &lt;id&gt;codehausSnapshots&lt;/id&gt;</div><div class="line">    &lt;name&gt;Codehaus Snapshots&lt;/name&gt;</div><div class="line">    &lt;releases&gt;</div><div class="line">    &lt;enabled&gt;false&lt;/enabled&gt;</div><div class="line">    &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;</div><div class="line">    &lt;checksumPolicy&gt;warn&lt;/checksumPolicy&gt;</div><div class="line">    &lt;/releases&gt;</div><div class="line">    &lt;snapshots&gt;</div><div class="line">    &lt;enabled&gt;true&lt;/enabled&gt;</div><div class="line">    &lt;updatePolicy&gt;never&lt;/updatePolicy&gt;</div><div class="line">    &lt;checksumPolicy&gt;fail&lt;/checksumPolicy&gt;</div><div class="line">    &lt;/snapshots&gt;</div><div class="line">    &lt;url&gt;http://snapshots.maven.codehaus.org/maven2&lt;/url&gt;</div><div class="line">    &lt;layout&gt;default&lt;/layout&gt;</div><div class="line">    &lt;/repository&gt;</div><div class="line">  &lt;/repositories&gt;</div><div class="line">  &lt;pluginRepositories&gt;</div><div class="line">  ...</div><div class="line">  &lt;/pluginRepositories&gt;</div><div class="line">  ...</div><div class="line">  &lt;/profile&gt;</div><div class="line">&lt;/profiles&gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>releases, snapshots：这里配置了两种构件，发布版（Release）和快照版（Snapshot）的策略。<br>enabled：true 或者 false 表示该仓库是否为某种类型构件（发布版或者快照版）开启。<br>updatePolicy：该元素指定更新发生的频率。选项是：always（一直），daily（默认，每日），interval：X（这里X是以分钟为单位的时间间隔），或者never（从不）。<br>checksumPolicy：当Maven将构件部署到仓库中时，它也会部署对应的校验和文件。选项有ignore（忽略），fail（失败），或者warn（警告）。<br>layout：在上面的仓库描述中，它们都遵循一个共同的布局。我们可以使用该元素指定布局是default（默认）还是legacy（遗留）。</p>
+</blockquote>
+<h3 id="Profile-1"><a href="#Profile-1" class="headerlink" title="Profile"></a>Profile</h3><p>在settings.xml中设置激活profile<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">settings</span> <span class="attr">...</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>env-test<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="Maven的pom-xml中所有配置节点详解"><a href="#Maven的pom-xml中所有配置节点详解" class="headerlink" title="Maven的pom.xml中所有配置节点详解"></a>Maven的pom.xml中所有配置节点详解</h3><p>看这里<a href="">Maven中pom.xml配置节点详解</a></p>
 <p>。。。<br>。。。<br>。。。<br>未完待续<br>Maven的概念和运用太多了，以后慢慢学习</p>
 
       
@@ -499,6 +611,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/13/element_in_pom_in_Maven/" rel="prev" title="Maven中pom.xml配置节点详解">
+                Maven中pom.xml配置节点详解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -570,7 +686,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -616,7 +732,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven简介"><span class="nav-number">1.</span> <span class="nav-text">Maven简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Maven是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的原则"><span class="nav-number">1.2.</span> <span class="nav-text">Maven的原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的插件"><span class="nav-number">1.3.</span> <span class="nav-text">Maven的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的特点"><span class="nav-number">1.4.</span> <span class="nav-text">Maven的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的项目对象模型"><span class="nav-number">1.5.</span> <span class="nav-text">Maven的项目对象模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven与Ant"><span class="nav-number">1.6.</span> <span class="nav-text">Maven与Ant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven安装和配置"><span class="nav-number">2.</span> <span class="nav-text">Maven安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven配置"><span class="nav-number">2.1.</span> <span class="nav-text">Maven配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户配置和仓库"><span class="nav-number">2.2.</span> <span class="nav-text">用户配置和仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven插件的下载逻辑"><span class="nav-number">2.3.</span> <span class="nav-text">Maven插件的下载逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven使用"><span class="nav-number">3.</span> <span class="nav-text">Maven使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个简单的maven项目"><span class="nav-number">3.1.</span> <span class="nav-text">创建一个简单的maven项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml简介"><span class="nav-number">3.2.</span> <span class="nav-text">pom.xml简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的生命周期"><span class="nav-number">3.3.</span> <span class="nav-text">Maven的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制pom-xml"><span class="nav-number">3.4.</span> <span class="nav-text">定制pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给项目添加资源"><span class="nav-number">3.5.</span> <span class="nav-text">给项目添加资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写单元测试"><span class="nav-number">3.6.</span> <span class="nav-text">编写单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置web应用"><span class="nav-number">3.7.</span> <span class="nav-text">配置web应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多模块项目"><span class="nav-number">4.</span> <span class="nav-text">多模块项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目关系"><span class="nav-number">4.1.</span> <span class="nav-text">项目关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目继承"><span class="nav-number">4.2.</span> <span class="nav-text">项目继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化和重构POM"><span class="nav-number">4.3.</span> <span class="nav-text">优化和重构POM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目对象模型POM"><span class="nav-number">5.</span> <span class="nav-text">项目对象模型POM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超级POM"><span class="nav-number">5.1.</span> <span class="nav-text">超级POM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目依赖"><span class="nav-number">5.2.</span> <span class="nav-text">项目依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Profile"><span class="nav-number">5.3.</span> <span class="nav-text">Profile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven属性"><span class="nav-number">6.</span> <span class="nav-text">Maven属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven简介"><span class="nav-number">1.</span> <span class="nav-text">Maven简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Maven是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的原则"><span class="nav-number">1.2.</span> <span class="nav-text">Maven的原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的插件"><span class="nav-number">1.3.</span> <span class="nav-text">Maven的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的特点"><span class="nav-number">1.4.</span> <span class="nav-text">Maven的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的项目对象模型"><span class="nav-number">1.5.</span> <span class="nav-text">Maven的项目对象模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven与Ant"><span class="nav-number">1.6.</span> <span class="nav-text">Maven与Ant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven安装和配置"><span class="nav-number">2.</span> <span class="nav-text">Maven安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven配置"><span class="nav-number">2.1.</span> <span class="nav-text">Maven配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户配置和仓库"><span class="nav-number">2.2.</span> <span class="nav-text">用户配置和仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven插件的下载逻辑"><span class="nav-number">2.3.</span> <span class="nav-text">Maven插件的下载逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven使用"><span class="nav-number">3.</span> <span class="nav-text">Maven使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个简单的maven项目"><span class="nav-number">3.1.</span> <span class="nav-text">创建一个简单的maven项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml简介"><span class="nav-number">3.2.</span> <span class="nav-text">pom.xml简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的生命周期"><span class="nav-number">3.3.</span> <span class="nav-text">Maven的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制pom-xml"><span class="nav-number">3.4.</span> <span class="nav-text">定制pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给项目添加资源"><span class="nav-number">3.5.</span> <span class="nav-text">给项目添加资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写单元测试"><span class="nav-number">3.6.</span> <span class="nav-text">编写单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置web应用"><span class="nav-number">3.7.</span> <span class="nav-text">配置web应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多模块项目"><span class="nav-number">4.</span> <span class="nav-text">多模块项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目关系"><span class="nav-number">4.1.</span> <span class="nav-text">项目关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目继承"><span class="nav-number">4.2.</span> <span class="nav-text">项目继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化和重构POM"><span class="nav-number">4.3.</span> <span class="nav-text">优化和重构POM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目对象模型POM"><span class="nav-number">5.</span> <span class="nav-text">项目对象模型POM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超级POM"><span class="nav-number">5.1.</span> <span class="nav-text">超级POM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目依赖"><span class="nav-number">5.2.</span> <span class="nav-text">项目依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Profile"><span class="nav-number">5.3.</span> <span class="nav-text">Profile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven属性"><span class="nav-number">6.</span> <span class="nav-text">Maven属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#settings-xml配置详解"><span class="nav-number">7.</span> <span class="nav-text">settings.xml配置详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶层元素"><span class="nav-number">7.1.</span> <span class="nav-text">顶层元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器（Servers）"><span class="nav-number">7.2.</span> <span class="nav-text">服务器（Servers）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像（Mirrors）"><span class="nav-number">7.3.</span> <span class="nav-text">镜像（Mirrors）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理（Proxies）"><span class="nav-number">7.4.</span> <span class="nav-text">代理（Proxies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库（Repositories）"><span class="nav-number">7.5.</span> <span class="nav-text">仓库（Repositories）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Profile-1"><span class="nav-number">7.6.</span> <span class="nav-text">Profile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的pom-xml中所有配置节点详解"><span class="nav-number">7.7.</span> <span class="nav-text">Maven的pom.xml中所有配置节点详解</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -1,0 +1,763 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="maven" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven学习总结2">
+<meta property="og:url" content="http://yoursite.com/2016/10/13/maven_learn2/index.html">
+<meta property="og:site_name" content="零骑士的城堡">
+<meta property="og:updated_time" content="2016-10-13T10:48:32.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven学习总结2">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Maven学习总结2 | 零骑士的城堡 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?147d7248c0000156a52c4fba5433044c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">零骑士的城堡</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Maven学习总结2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T18:33:22+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/13/maven_learn2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/maven_learn2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/13/maven_learn2/" class="leancloud_visitors" data-flag-title="Maven学习总结2">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="profile声明"><a href="#profile声明" class="headerlink" title="profile声明"></a>profile声明</h2><p>profile可以声明在以下这三个文件中：<br>pom.xml：很显然，这里声明的profile只对当前项目有效<br>用户settings.xml：.m2/settings.xml中的profile对该用户的Maven项目有效<br>全局settings.xml：conf/settings.xml，对本机上所有Maven项目有效</p>
+<ol>
+<li>在项目对应的pom.xml中配置插件的下载仓库<br>pom.xml中：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>central.maven.com<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapbar central mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.252:8081/nexus/content/repositories/central/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>3rd.mapbar.com<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapbar thirdparty central mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.252:8081/nexus/content/repositories/thirdparty/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>public.mapbar.com<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapbar tech API maven mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.252:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases.mapbar.com<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapbar thirdparty central mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.252:8081/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>此种方式只针对本项目有效，其他maven项目无效</p>
+<ol>
+<li>对所有maven项目都生效的配置方法：<br>settings.xml中：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span>  </div><div class="line"> <span class="tag">&lt;<span class="name">profile</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;<span class="name">repositories</span>&gt;</span>  </div><div class="line">         <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.53.55:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">releases</span>&gt;</span>  </div><div class="line">                 <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;/<span class="name">releases</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span>  </div><div class="line">                 <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span>  </div><div class="line">         <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span>  </div><div class="line">         <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.53.55:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">releases</span>&gt;</span>  </div><div class="line">                 <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;/<span class="name">releases</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span>  </div><div class="line">                 <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>  </div><div class="line">             <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span>  </div><div class="line">         <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span>  </div><div class="line"> <span class="tag">&lt;/<span class="name">profile</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span>  </div><div class="line"> <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="构建发布仓库配置"><a href="#构建发布仓库配置" class="headerlink" title="构建发布仓库配置"></a>构建发布仓库配置</h2><p>pom.xml中如下配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span>  </div><div class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/repositories/thirdparty/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </div><div class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在mvn deploy时，则构件自动发布到指定仓库</p>
+<p>需要注意：<br>settings.xml文件必须配置servers，其中id必须和repository下的id一致<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span>  </div><div class="line">	<span class="tag">&lt;<span class="name">server</span>&gt;</span>  </div><div class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </div><div class="line">		<span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span>  </div><div class="line">		<span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span>  </div><div class="line">	<span class="tag">&lt;/<span class="name">server</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="maven中使用key-value形式的变量声明"><a href="#maven中使用key-value形式的变量声明" class="headerlink" title="maven中使用key=value形式的变量声明"></a>maven中使用key=value形式的变量声明</h2><p>maven中如何引用其他properties文件中key=value形式的变量？<br>使用插件maven-properties-plugin<br>方法如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.codehaus.mojo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-properties-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>validate<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>read-project-properties<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">files</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">file</span>&gt;</span>etc/config/dev.properties<span class="tag">&lt;/<span class="name">file</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">files</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>或者<br>如果需要引用外部propertiest文件中的属性值，需要在pom.xml中添加对外部文件的引用。例如，创建一个外部资源文件pom.properties.</p>
+<h2 id="一些小坑汇总"><a href="#一些小坑汇总" class="headerlink" title="一些小坑汇总"></a>一些小坑汇总</h2><ol>
+<li><p>assembly插件打包压缩zip时，zip包的根目录多了一级目录，这个目录名为finalname，why?<br>解决方法：<includebasedirectory>false</includebasedirectory>  在descriptor对应的xml中加上这个配置就可以解决</p>
+</li>
+<li><p>maven只能定义属性，无法在build过程中引用插件时去修改</p>
+</li>
+<li><p>当需要自定义assembly插件的打包行为时，配置中descriptors对应的xml文件，是用来描述打包的文件的相关行为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">descriptors</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">descriptor</span>&gt;</span>myassembly.xml<span class="tag">&lt;/<span class="name">descriptor</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">descriptors</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>当需要自定义deploy这个生命周期的行为时，需要在使用过程中屏蔽自带的maven-deploy-plugin的行为，方法如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-deploy-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用wagon-maven-plugin插件通过scp上传文件到服务器，默认插件的phase设置为deploy，方法如下：<br>pom.xml修改如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">extensions</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">extension</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.wagon<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wagon-ssh<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-beta-6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">extensions</span>&gt;</span></div><div class="line">	......</div><div class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">		......</div><div class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.codehaus.mojo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wagon-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-beta-3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">executions</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">execution</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">id</span>&gt;</span>upload<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">phase</span>&gt;</span>deploy<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">goals</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">goal</span>&gt;</span>upload<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></div><div class="line">					<span class="tag">&lt;/<span class="name">goals</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">serverId</span>&gt;</span>testserver<span class="tag">&lt;/<span class="name">serverId</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">fromDir</span>&gt;</span>$&#123;deploy_file_dir&#125;/<span class="tag">&lt;/<span class="name">fromDir</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">url</span>&gt;</span>scp://server_host/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">toDir</span>&gt;</span>$&#123;server_dir&#125;<span class="tag">&lt;/<span class="name">toDir</span>&gt;</span></div><div class="line">					<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">execution</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">executions</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-deploy-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>maven的settings.xml也需要设置，需要设置插件中引用的serverId，方法如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">server</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">id</span>&gt;</span>10.96.153.201<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">username</span>&gt;</span>server_username<span class="tag">&lt;/<span class="name">username</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">privateKey</span>&gt;</span>/path/to/private/key<span class="tag">&lt;/<span class="name">privateKey</span>&gt;</span></div><div class="line">	  <span class="comment">&lt;!-- &lt;passphrase&gt;optional; leave empty if not used.&lt;/passphrase&gt; --&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">server</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></div></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/maven/" rel="tag">#maven</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/13/element_in_pom_in_Maven/" rel="next" title="Maven中pom.xml配置节点详解">
+                <i class="fa fa-chevron-left"></i> Maven中pom.xml配置节点详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/13/maven_learn2/"
+           data-title="Maven学习总结2" data-url="http://yoursite.com/2016/10/13/maven_learn2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="zeroknight" />
+          <p class="site-author-name" itemprop="name">zeroknight</p>
+          <p class="site-description motion-element" itemprop="description">Only one, Only you.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#profile声明"><span class="nav-number">1.</span> <span class="nav-text">profile声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建发布仓库配置"><span class="nav-number">2.</span> <span class="nav-text">构建发布仓库配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven中使用key-value形式的变量声明"><span class="nav-number">3.</span> <span class="nav-text">maven中使用key=value形式的变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些小坑汇总"><span class="nav-number">4.</span> <span class="nav-text">一些小坑汇总</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zeroknight</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zeroknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("tKLwnePscX36oCLkYJY1p3jF-gzGzoHsz", "elzsGYAh1re4wU7MFvtkx1u2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
